@@ -28,7 +28,7 @@ namespace net_maui_list_consumer
 }
 ```
 
-And we want to use our external `ListView` component to display it in some customized way:
+And we want to use our external `DisplayList` component to display it in some customized way:
 
 [![imported custom list view][1]][1]
 
@@ -55,19 +55,19 @@ public partial class DisplayList : ListView
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="IVSoftware.Maui.Demo.Components.DisplayList">
     
-        <ListView.ItemTemplate ItemsSource="{Binding ListFromExternalDLL}">
+        <ListView.ItemTemplate>
             <DataTemplate>
                 <ViewCell>
-                    <!-- Define the layout for each item in the list -->
                     <StackLayout>
                         <Frame 
+                            HeightRequest="80"
                             CornerRadius="20"
                             BackgroundColor="{Binding Color}">
                             <Label 
                                 Text="{Binding Name}" 
                                 TextColor="White" 
-                                HeightRequest="50"
-                                FontSize="Medium"/>
+                                FontSize="Small"
+                                VerticalTextAlignment="Center"/>
                         </Frame>
                     </StackLayout>
                 </ViewCell>
@@ -90,7 +90,10 @@ And the "trick" to using the `DisplayList` from the external project is to quali
              x:Class="net_maui_list_consumer.MainPage">
 
     <Grid>
-        <ivs:DisplayList ItemsSource="{Binding Fruits}"/>
+        <ivs:DisplayList
+            ItemsSource="{Binding Fruits}"
+            RowHeight="80"
+        />
     </Grid>
 
 </ContentPage>
