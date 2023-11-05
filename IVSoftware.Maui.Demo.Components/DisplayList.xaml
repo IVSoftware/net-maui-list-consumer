@@ -3,19 +3,19 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="IVSoftware.Maui.Demo.Components.DisplayList">
     
-        <ListView.ItemTemplate ItemsSource="{Binding ListFromExternalDLL}">
+        <ListView.ItemTemplate>
             <DataTemplate>
                 <ViewCell>
-                    <!-- Define the layout for each item in the list -->
                     <StackLayout>
                         <Frame 
+                            HeightRequest="80"
                             CornerRadius="20"
                             BackgroundColor="{Binding Color}">
                             <Label 
                                 Text="{Binding Name}" 
                                 TextColor="White" 
-                                HeightRequest="50"
-                                FontSize="Medium"/>
+                                FontSize="Small"
+                                VerticalTextAlignment="Center"/>
                         </Frame>
                     </StackLayout>
                 </ViewCell>

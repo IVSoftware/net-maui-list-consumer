@@ -5,7 +5,10 @@
              x:Class="net_maui_list_consumer.MainPage">
 
     <Grid>
-        <ivs:DisplayList ItemsSource="{Binding Fruits}"/>
+        <ivs:DisplayList
+            ItemsSource="{Binding Fruits}"
+            RowHeight="80"
+        />
     </Grid>
 
 </ContentPage>
